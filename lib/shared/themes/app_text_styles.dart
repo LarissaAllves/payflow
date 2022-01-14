@@ -48,6 +48,13 @@ class TextStyles {
     fontWeight: FontWeight.w400,
     color: AppColors.heading,
   );
+
+  static final input = GoogleFonts.inter(
+    fontSize: 15,
+    fontWeight: FontWeight.w400,
+    color: AppColors.input,
+  );
+
   static final buttonGray = GoogleFonts.inter(
     fontSize: 15,
     fontWeight: FontWeight.w400,

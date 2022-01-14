@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:payflow/shared/set_label_buttons/set_label_buttons.dart';
 import 'package:payflow/shared/themes/app_colors.dart';
 import 'package:payflow/shared/themes/app_text_styles.dart';
 import 'package:payflow/shared/widgets/bottom_sheet/bottom_sheet_widget.dart';
+import 'package:payflow/shared/widgets/set_label_buttons/set_label_buttons.dart';
 
 import 'barcode_scanner_controller.dart';
 import 'barcode_scanner_status.dart';
@@ -24,7 +24,8 @@ class _BarcodeScannerPage extends State<BarcodeScannerPage> {
     controller.getAvailableCameras();
     controller.statusNotifier.addListener(() {
       if (controller.status.hasBarcode) {
-        Navigator.pushReplacementNamed(context, "/insert_boleto");
+        Navigator.pushReplacementNamed(context, "/insert_boleto",
+            arguments: controller.status.barcode);
       }
     });
 
@@ -51,7 +52,7 @@ class _BarcodeScannerPage extends State<BarcodeScannerPage> {
             builder: (_, status, __) {
               if (status.showCamera) {
                 return Container(
-                  child: status.cameraController!.buildPreview(),
+                  child: controller.cameraController!.buildPreview(),
                 );
               } else {
                 return Container();
@@ -92,9 +93,13 @@ class _BarcodeScannerPage extends State<BarcodeScannerPage> {
                 ),
                 bottomNavigationBar: SetLabelButtons(
                     primaryLabel: "Inserir o código do boleto",
-                    primaryOnPressed: () {},
+                    primaryOnPressed: () {
+                      Navigator.pushReplacementNamed(context, "/insert_boleto");
+                    },
                     secondaryLabel: "Adicionar da galeria",
-                    secondaryOnPressed: () {})),
+                    secondaryOnPressed: () {
+                      Navigator.pushReplacementNamed(context, "/insert_boleto");
+                    })),
           ),
           ValueListenableBuilder<BarcodeScannerStatus>(
             valueListenable: controller.statusNotifier,
@@ -106,7 +111,7 @@ class _BarcodeScannerPage extends State<BarcodeScannerPage> {
                       "Tente escanear novamente ou digite o código do seu boleto",
                   primaryLabel: "Escanear novamente",
                   primaryOnPressed: () {
-                    controller.getAvailableCameras();
+                    controller.scanWithCamera();
                   },
                   secondaryLabel: "Digitar novamente",
                   secondaryOnPressed: () {},

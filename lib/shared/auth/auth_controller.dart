@@ -12,8 +12,8 @@ class AuthController {
       saveUser(user);
       _user = user;
 
-      Navigator.pushReplacementNamed(
-          context, "/home"); //routes nomeadas no arquivo app_widget
+      Navigator.pushReplacementNamed(context, "/home",
+          arguments: user); //routes nomeadas no arquivo app_widget
     } else {
       Navigator.pushReplacementNamed(context, "/login");
     }
