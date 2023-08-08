@@ -1,16 +1,37 @@
-# payflow
+<h1 align="center">
+    <img alt="PayFlow" width="180px" src="https://user-images.githubusercontent.com/59374587/122830149-4f3dc700-d2be-11eb-9fe2-316561d10772.png" />
+</h1>
 
-A new Flutter project.
+## 📸 Screenshots
+<p align="center">
+    <img alt="Payflow Home" src="https://user-images.githubusercontent.com/59374587/122856653-86779c80-d2ed-11eb-8927-8c5433dc37d3.png" />
+</p>
 
-## Getting Started
+## :rocket: Tecnologias
 
-This project is a starting point for a Flutter application.
+Esse projeto foi desenvolvido com as seguintes tecnologias:
 
-A few resources to get you started if this is your first Flutter project:
+- [Flutter](https://flutter.dev/)
+- [Firebase](https://firebase.google.com/)
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+---
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<h2 align="center">Como Usar 🤔</h2>
+
+   ```
+  
+   - Clone this repository:
+   $ git clone https://github.com/LarissaAllves/payflow
+
+   - Enter in directory:
+   $ cd payflow
+
+   - For install dependencies:
+   $ flutter pub get
+
+   - Run the app: 
+   $ flutter run
+   ```
+
+---
+
